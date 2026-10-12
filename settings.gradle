@@ -1,0 +1,4 @@
+include ':app'
+include ':nav-core'
+include ':nav-hiking'
+rootProject.name = "Maps"

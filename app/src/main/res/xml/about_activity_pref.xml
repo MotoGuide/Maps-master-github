@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:theme="@style/DarkPreferenceTheme">
+
+    <PreferenceCategory android:title="关于">
+
+        <Preference
+            android:key="setting_pref_version"
+            android:title="版本" />
+
+        <Preference
+            android:summary="如果你知道哪里有摩托车抓拍摄像头，希望你提供给我，一块完善一下，让更多骑友能够规避！"
+            android:title="说明" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="参考开源">
+
+        <Preference
+            android:summary="https://github.com/quentinDeboudt/GPS-ESP32-Navigation"
+            android:title="GPS-ESP32-Navigation" />
+
+        <Preference
+            android:summary="https://github.com/andforce/Maps"
+            android:title="Maps" />
+
+        <Preference
+            android:summary="OSM路网数据"
+            android:title="OpenStreetMap" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

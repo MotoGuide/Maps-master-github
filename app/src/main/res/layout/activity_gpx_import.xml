@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#0D0D0D"
+    android:padding="24dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="导入轨迹"
+        android:textColor="#F5F5F5"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="支持 GPX / KML 格式"
+        android:textColor="#888"
+        android:textSize="14sp" />
+
+    <!-- Step 1: 选择文件 -->
+    <TextView
+        android:id="@+id/import_btn_pick_file"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:text="点击选择 GPX/KML 文件"
+        android:textColor="#B0B0B0"
+        android:background="@drawable/bg_file_picker" />
+
+    <TextView
+        android:id="@+id/import_txt_filename"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="未选择文件"
+        android:textColor="#888"
+        android:textSize="14sp" />
+
+    <!-- Step 2: 坐标系选择 -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="原始坐标系："
+        android:textColor="#F5F5F5"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <RadioGroup
+        android:id="@+id/import_radio_coord"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:checkedButton="@+id/import_radio_gcj02">
+
+        <RadioButton android:id="@+id/import_radio_gcj02"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="GCJ-02 火星坐标系（高德/腾讯）" android:textColor="#B0B0B0" />
+        <RadioButton android:id="@+id/import_radio_wgs84"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="WGS-84 GPS原始坐标（最常见）" android:textColor="#B0B0B0" />
+        <RadioButton android:id="@+id/import_radio_bd09"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="BD-09 百度坐标系" android:textColor="#B0B0B0" />
+    </RadioGroup>
+
+    <!-- 预览信息 -->
+    <TextView
+        android:id="@+id/import_txt_preview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="选择文件后将显示预览信息"
+        android:textColor="#888"
+        android:textSize="14sp"
+        android:visibility="gone" />
+
+    <!-- 确认导入按钮 -->
+    <TextView
+        android:id="@+id/import_btn_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:text="确认导入"
+        android:textColor="#0D0D0D"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:background="@drawable/bg_btn_yellow"
+        android:enabled="false" />
+</LinearLayout>

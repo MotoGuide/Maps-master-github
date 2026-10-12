@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tab3 徒步容器：Tab切换 + 内容区 + 导航仪表板BottomSheet -->
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0D0D0D">
+
+    <!-- 状态栏暗色叠加层（参照 Tab2 fragment_maps.xml），防止内容穿透半透明状态栏 -->
+    <org.zarroboogs.maps.widget.StatusBarView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#4C000000" />
+
+    <!-- 主内容区：fitsSystemWindows 使内容自动避开状态栏 -->
+    <LinearLayout
+        android:id="@+id/hiking_main_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:fitsSystemWindows="true">
+
+        <!-- Tab 切换栏 -->
+        <LinearLayout
+            android:id="@+id/hiking_tab_bar"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:paddingHorizontal="16dp"
+            android:layout_marginTop="8dp">
+
+            <!-- 收藏地点 Tab -->
+            <TextView
+                android:id="@+id/hiking_tab_bookmarks"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="⭐ 收藏地点"
+                android:textColor="#FFC107"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:background="@drawable/bg_tab_active" />
+
+            <!-- 轨迹管理 Tab -->
+            <TextView
+                android:id="@+id/hiking_tab_tracks"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="🗺 轨迹管理"
+                android:textColor="#888"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:background="@drawable/bg_tab_inactive" />
+        </LinearLayout>
+
+        <!-- Tab 内容区 -->
+        <FrameLayout
+            android:id="@+id/hiking_tab_content"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <!-- 右上角退出按钮（导航中可见）。fitsSystemWindows 包裹使按钮自动避开状态栏 -->
+    <FrameLayout
+        android:id="@+id/hiking_exit_wrapper"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|top"
+        android:fitsSystemWindows="true"
+        android:visibility="gone">
+
+        <ImageButton
+            android:id="@+id/hiking_btn_exit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="10dp"
+            android:elevation="4dp"
+            android:background="@drawable/circle_btn_dark"
+            android:src="@drawable/ic_close"
+            android:scaleType="centerInside"
+            android:contentDescription="退出导航" />
+    </FrameLayout>
+
+    <!-- 底部仪表板 BottomSheet（原 fragment_hiking_map.xml 底部面板，保持不变） -->
+    <LinearLayout
+        android:id="@+id/hiking_bottom_sheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/bg_bottom_sheet"
+        android:elevation="8dp"
+        android:padding="16dp"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+        <!-- 拖动条 -->
+        <View
+            android:layout_width="40dp"
+            android:layout_height="4dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="12dp"
+            android:background="#555" />
+
+        <!-- 转向指示行 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/hiking_txt_turn_direction"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="--"
+                android:textColor="#FFC107"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/hiking_txt_turn_distance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="--"
+                android:textColor="#F5F5F5"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- 进度条 -->
+        <ProgressBar
+            android:id="@+id/hiking_progress_bar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="6dp"
+            android:layout_marginTop="8dp"
+            android:progressTint="#FFC107"
+            android:progressBackgroundTint="#333" />
+
+        <TextView
+            android:id="@+id/hiking_txt_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="0%"
+            android:textColor="#B0B0B0"
+            android:textSize="12sp" />
+
+        <!-- 数据卡片组 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView android:id="@+id/hiking_txt_remain_dist"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="--" android:textColor="#FFC107" android:textSize="22sp"
+                    android:textStyle="bold" android:fontFamily="monospace" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="剩余距离" android:textColor="#888" android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView android:id="@+id/hiking_txt_eta"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="--" android:textColor="#FFC107" android:textSize="22sp"
+                    android:textStyle="bold" android:fontFamily="monospace" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="预计到达" android:textColor="#888" android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 空闲状态面板 -->
+        <LinearLayout
+            android:id="@+id/hiking_panel_idle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/hiking_btn_select_track"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:gravity="center"
+                android:text="选择轨迹开始徒步"
+                android:textColor="#0D0D0D"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:background="@drawable/bg_btn_yellow" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/hiking_btn_import"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    android:gravity="center"
+                    android:text="导入 GPX/KML"
+                    android:textColor="#FFC107"
+                    android:background="@drawable/bg_btn_outline" />
+
+                <TextView
+                    android:id="@+id/hiking_btn_record"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:gravity="center"
+                    android:text="录制轨迹"
+                    android:textColor="#FFC107"
+                    android:background="@drawable/bg_btn_outline" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 模拟导航控制面板（玻璃质感暗色背景） -->
+        <LinearLayout
+            android:id="@+id/hiking_panel_sim"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical"
+            android:background="@drawable/bg_btn_outline"
+            android:padding="12dp"
+            android:visibility="gone">
+
+            <!-- 距离/进度文本 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/hiking_sim_info"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="0.0 / 0.0 km"
+                    android:textColor="#FFC107"
+                    android:textSize="14sp"
+                    android:fontFamily="monospace" />
+
+                <TextView
+                    android:id="@+id/hiking_sim_speed_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1x"
+                    android:textColor="#F5F5F5"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:fontFamily="monospace" />
+            </LinearLayout>
+
+            <!-- 可拖拽进度条 -->
+            <SeekBar
+                android:id="@+id/hiking_sim_seekbar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:layout_marginTop="4dp"
+                android:progressTint="#FFC107"
+                android:thumbTint="#FFC107"
+                android:progressBackgroundTint="#333"
+                android:max="1000" />
+
+            <!-- 控制按钮组 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <!-- 播放/暂停 -->
+                <ImageButton
+                    android:id="@+id/hiking_sim_play"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/circle_btn_dark"
+                    android:src="@android:drawable/ic_media_play"
+                    android:scaleType="centerInside"
+                    android:contentDescription="播放/暂停" />
+
+                <!-- 倍速按钮 1x -->
+                <TextView
+                    android:id="@+id/hiking_sim_speed_1x"
+                    android:layout_width="44dp"
+                    android:layout_height="36dp"
+                    android:layout_marginHorizontal="3dp"
+                    android:gravity="center"
+                    android:text="1x"
+                    android:textColor="#FFC107"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_speed_btn_active" />
+
+                <!-- 倍速按钮 2x -->
+                <TextView
+                    android:id="@+id/hiking_sim_speed_2x"
+                    android:layout_width="44dp"
+                    android:layout_height="36dp"
+                    android:layout_marginHorizontal="3dp"
+                    android:gravity="center"
+                    android:text="2x"
+                    android:textColor="#888"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_speed_btn" />
+
+                <!-- 倍速按钮 5x -->
+                <TextView
+                    android:id="@+id/hiking_sim_speed_5x"
+                    android:layout_width="44dp"
+                    android:layout_height="36dp"
+                    android:layout_marginHorizontal="3dp"
+                    android:gravity="center"
+                    android:text="5x"
+                    android:textColor="#888"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_speed_btn" />
+
+                <!-- 倍速按钮 10x -->
+                <TextView
+                    android:id="@+id/hiking_sim_speed_10x"
+                    android:layout_width="44dp"
+                    android:layout_height="36dp"
+                    android:layout_marginHorizontal="3dp"
+                    android:gravity="center"
+                    android:text="10x"
+                    android:textColor="#888"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_speed_btn" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

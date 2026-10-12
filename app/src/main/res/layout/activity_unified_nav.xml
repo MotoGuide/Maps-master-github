@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    UnifiedNavActivity 布局（设计参考，未启用）
+
+    结构：
+      FrameLayout 根容器
+        ├── MapView (ROUTE 态地图)
+        ├── AMapNaviView (NAVI 态地图)
+        ├── ROUTE UI 容器 (路线选择/偏好/按钮等)
+        └── NAVI UI 容器 (BLE/语音/样式按钮等)
+
+    实际接入时需从 activity_route.xml 和 activity_navicustom.xml 搬运完整控件。
+    当前为最小化骨架，仅供编译通过。
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- ROUTE 态地图 -->
+    <com.amap.api.maps.MapView
+        android:id="@+id/route_map_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible" />
+
+    <!-- NAVI 态地图 -->
+    <com.amap.api.navi.AMapNaviView
+        android:id="@+id/navi_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+    <!-- ROUTE 态 UI -->
+    <LinearLayout
+        android:id="@+id/route_ui_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <!-- 顶部栏 -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp">
+
+            <ImageView
+                android:id="@+id/route_back_view"
+                android:layout_width="48dp"
+                android:layout_height="48dp" />
+
+            <TextView
+                android:id="@+id/nav_mode_selector"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="@string/nav_mode_drive" />
+        </RelativeLayout>
+
+        <!-- 底部路线信息 + 按钮 -->
+        <LinearLayout
+            android:id="@+id/navi_cast_root_rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- 路线选择卡片 -->
+            <HorizontalScrollView
+                android:id="@+id/route_selector_scroll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone">
+                <LinearLayout
+                    android:id="@+id/route_selector_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" />
+            </HorizontalScrollView>
+
+            <!-- 路线信息 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView android:id="@+id/navi_route_distance" />
+                <TextView android:id="@+id/navi_route_time" />
+                <LinearLayout android:id="@+id/route_cost_column">
+                    <TextView android:id="@+id/navi_route_cost" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- 操作按钮 -->
+            <LinearLayout
+                android:id="@+id/route_action_buttons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageButton android:id="@+id/routestartnavi" />
+                <Button android:id="@+id/routestartemulator" />
+                <ImageButton android:id="@+id/btn_locate" />
+                <ImageButton android:id="@+id/btn_refresh" />
+                <ImageButton android:id="@+id/btn_preference" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- NAVI 态 UI -->
+    <FrameLayout
+        android:id="@+id/navi_ui_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <!-- BLE 按钮 -->
+        <FrameLayout
+            android:id="@+id/navi_ble_button_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_marginBottom="140dp">
+            <ImageButton
+                android:id="@+id/navi_ble_scan_button"
+                android:layout_width="48dp"
+                android:layout_height="48dp" />
+            <ImageView
+                android:id="@+id/navi_ble_connection_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </FrameLayout>
+
+        <!-- 语音按钮 -->
+        <FrameLayout
+            android:id="@+id/navi_voice_button_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_marginBottom="200dp">
+            <ImageButton
+                android:id="@+id/navi_voice_button"
+                android:layout_width="48dp"
+                android:layout_height="48dp" />
+        </FrameLayout>
+
+        <!-- 样式切换按钮 -->
+        <FrameLayout
+            android:id="@+id/navi_style_button_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_marginBottom="260dp">
+            <ImageButton
+                android:id="@+id/navi_style_button"
+                android:layout_width="48dp"
+                android:layout_height="48dp" />
+        </FrameLayout>
+    </FrameLayout>
+
+</FrameLayout>

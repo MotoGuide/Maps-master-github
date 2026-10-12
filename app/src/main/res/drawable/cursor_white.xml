@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 白色光标，避免 DarkPreferenceTheme 的黄色 accent -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <size android:width="2dp" />
+    <solid android:color="@android:color/white" />
+</shape>

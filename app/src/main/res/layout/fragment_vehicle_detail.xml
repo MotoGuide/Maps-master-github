@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:paddingBottom="80dp">
+
+            <!-- Vehicle Image -->
+            <ImageView
+                android:id="@+id/iv_vehicle_icon"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/rounded_wellow_background"
+                android:scaleType="centerInside"
+                android:src="@mipmap/ic_profile_default_image_foreground" />
+
+            <!-- Info Cards Grid -->
+            <GridLayout
+                android:id="@+id/grid_profile_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:columnCount="2" />
+
+            <!-- Fuel Summary Card -->
+            <LinearLayout
+                android:id="@+id/fuel_summary_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical"
+                android:background="#1A1A1A"
+                android:padding="16dp"
+                android:visibility="gone"
+                android:clickable="true"
+                android:focusable="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="油耗概览"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="10dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+                        <TextView
+                            android:id="@+id/tv_avg_fuel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="#FFEB3B"
+                            android:textSize="30sp"
+                            android:textStyle="bold"
+                            android:text="--" />
+                        <TextView
+                            android:id="@+id/tv_avg_fuel_unit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="L/100KM"
+                            android:textColor="#FFEB3B"
+                            android:textSize="13sp"
+                            android:layout_marginTop="1dp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="百公里油耗"
+                            android:textColor="#B0B0B0"
+                            android:textSize="12sp"
+                            android:layout_marginTop="4dp" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="40dp"
+                        android:background="#FFEB3B"
+                        android:alpha="0.4" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+                        <TextView
+                            android:id="@+id/tv_avg_cost"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="#FFEB3B"
+                            android:textSize="30sp"
+                            android:textStyle="bold"
+                            android:text="--" />
+                        <TextView
+                            android:id="@+id/tv_avg_cost_unit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="元/KM"
+                            android:textColor="#FFEB3B"
+                            android:textSize="13sp"
+                            android:layout_marginTop="1dp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="平均每公里"
+                            android:textColor="#B0B0B0"
+                            android:textSize="12sp"
+                            android:layout_marginTop="4dp" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="40dp"
+                        android:background="#FFEB3B"
+                        android:alpha="0.4" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+                        <TextView
+                            android:id="@+id/tv_total_spent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="#FFEB3B"
+                            android:textSize="30sp"
+                            android:textStyle="bold"
+                            android:text="--" />
+                        <TextView
+                            android:id="@+id/tv_total_spent_unit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="元"
+                            android:textColor="#FFEB3B"
+                            android:textSize="13sp"
+                            android:layout_marginTop="1dp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="总消费"
+                            android:textColor="#B0B0B0"
+                            android:textSize="12sp"
+                            android:layout_marginTop="4dp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- MapView Preview -->
+            <com.amap.api.maps.MapView
+                android:id="@+id/map_vehicle_location"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginTop="20dp"
+                android:visibility="gone" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Floating FAB Row -->
+    <LinearLayout
+        android:id="@+id/bottom_action_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="8dp"
+        android:layout_marginBottom="4dp">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="6dp"
+            android:src="@drawable/deletepeizhi"
+            android:tint="#000000"
+            app:backgroundTint="#FFEB3B"
+            app:fabSize="normal"
+            android:contentDescription="删除" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="6dp"
+            android:src="@drawable/homeend"
+            android:tint="#000000"
+            app:backgroundTint="#FFEB3B"
+            app:fabSize="normal"
+            android:contentDescription="首页" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="6dp"
+            android:src="@drawable/bianji"
+            android:tint="#000000"
+            app:backgroundTint="#FFEB3B"
+            app:fabSize="normal"
+            android:contentDescription="编辑" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_add_fuel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="6dp"
+            android:src="@android:drawable/ic_input_add"
+            android:tint="#000000"
+            app:backgroundTint="#FFEB3B"
+            app:fabSize="normal"
+            android:contentDescription="记一笔" />
+
+    </LinearLayout>
+
+</FrameLayout>

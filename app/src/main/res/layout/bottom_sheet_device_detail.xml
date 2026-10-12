@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rounded_black_background">
+
+    <LinearLayout
+        android:id="@+id/content_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Drag handle -->
+        <View
+            android:layout_width="32dp"
+            android:layout_height="4dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="16dp"
+            android:background="#555555" />
+
+        <!-- Device header: photo + name -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <FrameLayout
+                android:layout_width="100dp"
+                android:layout_height="75dp"
+                android:layout_marginEnd="16dp">
+
+                <ImageView
+                    android:id="@+id/iv_device_photo"
+                    android:layout_width="100dp"
+                    android:layout_height="75dp"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/esp32shebeitupianmoren" />
+
+                <ImageView
+                    android:id="@+id/iv_photo_edit_hint"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="top|end"
+                    android:layout_margin="2dp"
+                    android:src="@drawable/new_icon"
+                    android:tint="#FFEB3B"
+                    android:background="#CC000000"
+                    android:padding="3dp" />
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_device_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ESP32 导航设备"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_device_mac"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="--:--:--:--:--:--"
+                    android:textColor="#808080"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="#333333" />
+
+        <!-- Battery row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:text="🔋"
+                android:textSize="14sp"
+                android:layout_marginEnd="8dp" />
+
+            <org.zarroboogs.maps.widget.BatteryBar
+                android:id="@+id/battery_bar"
+                android:layout_width="140dp"
+                android:layout_height="24dp" />
+
+            <TextView
+                android:id="@+id/tv_battery_pct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:layout_marginStart="8dp" />
+        </LinearLayout>
+
+        <!-- Signal row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="4dp">
+
+            <TextView
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:text="📶"
+                android:textSize="14sp"
+                android:layout_marginEnd="8dp" />
+
+            <org.zarroboogs.maps.widget.SignalBar
+                android:id="@+id/signal_bar"
+                android:layout_width="84dp"
+                android:layout_height="20dp" />
+
+            <TextView
+                android:id="@+id/tv_signal_dbm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:layout_marginStart="8dp" />
+        </LinearLayout>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="#333333" />
+
+        <!-- Firmware version -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="固件版本"
+                android:textColor="#808080"
+                android:textSize="13sp" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/tv_firmware_version"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="未知"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- Connected duration -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="4dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="已连接时长"
+                android:textColor="#808080"
+                android:textSize="13sp" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/tv_connected_duration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="--"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="#333333" />
+
+        <!-- Firmware update section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="固件更新"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="10dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_dark_card_background"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <!-- 在线更新区域 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:id="@+id/tv_online_update_status"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="在线更新"
+                    android:textColor="#808080"
+                    android:textSize="12sp"
+                    android:maxLines="2"
+                    android:ellipsize="end" />
+
+                <TextView
+                    android:id="@+id/btn_check_update"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_wellow_background"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:paddingTop="6dp"
+                    android:paddingBottom="6dp"
+                    android:text="检查更新"
+                    android:textColor="#000000"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- 本地文件更新（备选） -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tv_firmware_file_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="本地文件"
+                    android:textColor="#808080"
+                    android:textSize="12sp"
+                    android:maxLines="1"
+                    android:ellipsize="middle" />
+
+                <TextView
+                    android:id="@+id/btn_select_firmware"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_wellow_background"
+                    android:paddingStart="14dp"
+                    android:paddingEnd="14dp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:text="选择文件"
+                    android:textColor="#000000"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_firmware_file_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textColor="#808080"
+                android:textSize="11sp"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/btn_start_update"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rounded_wellow_background"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="开始推送"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Unconnected overlay -->
+    <FrameLayout
+        android:id="@+id/unconnected_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/rounded_dark_overlay"
+        android:visibility="gone"
+        android:clickable="true"
+        android:focusable="true">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/icon_device_disconnected"
+                android:layout_marginBottom="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="未连接"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="请先连接 ESP32 设备"
+                android:textColor="#808080"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </FrameLayout>
+
+</FrameLayout>

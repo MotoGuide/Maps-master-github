@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/info_window_bg">
+
+    <TextView
+        android:id="@+id/info_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="摄像头名称"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_margin="10dp"/>
+
+    <TextView
+        android:id="@+id/info_snippet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="地址和详情"
+        android:textSize="14sp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:maxLines="3"
+        android:ellipsize="end"/>
+
+    <Button
+        android:id="@+id/info_delete_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="删除"
+        android:textSize="12sp"
+        android:background="@drawable/button_background_selector"
+        android:layout_gravity="end"
+        android:layout_margin="10dp"/>
+
+</LinearLayout>

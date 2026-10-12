@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tab 未选中态：底部灰色下划线 -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/transparent" />
+        </shape>
+    </item>
+    <item
+        android:gravity="bottom"
+        android:height="2dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#333" />
+            <corners android:radius="2dp" />
+        </shape>
+    </item>
+</layer-list>

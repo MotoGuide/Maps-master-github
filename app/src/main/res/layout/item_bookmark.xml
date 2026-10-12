@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 收藏地点卡片 — 黑黄暗色风格 -->
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    app:cardBackgroundColor="#1A1A1A"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="2dp"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="14dp"
+        android:gravity="center_vertical">
+
+        <!-- 星标图标 -->
+        <TextView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="⭐"
+            android:textSize="20sp" />
+
+        <!-- 名称 + 地址 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/item_bookmark_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#F5F5F5"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:maxLines="1"
+                android:ellipsize="end" />
+
+            <TextView
+                android:id="@+id/item_bookmark_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:textColor="#888"
+                android:textSize="12sp"
+                android:maxLines="2"
+                android:ellipsize="end" />
+
+        </LinearLayout>
+
+        <!-- 坐标信息 -->
+        <TextView
+            android:id="@+id/item_bookmark_coords"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFC107"
+            android:textSize="11sp"
+            android:fontFamily="monospace"
+            android:gravity="end"
+            android:lineSpacingMultiplier="1.3" />
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

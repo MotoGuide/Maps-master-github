@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/search_panel_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rounded_black_background"
+    android:paddingBottom="12dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- 第一部分：快捷图标 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="快捷导航"
+            android:textColor="#FFEB3B"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:paddingStart="16dp"
+            android:paddingTop="14dp"
+            android:paddingBottom="8dp" />
+
+        <LinearLayout
+            android:id="@+id/quick_access_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginTop="6dp"
+            android:background="#33FFFFFF" />
+
+        <!-- 第二部分：搜索历史 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="12dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="4dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="搜索历史"
+                android:textColor="#FFEB3B"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/clear_history_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="清空"
+                android:textColor="#999999"
+                android:textSize="12sp"
+                android:padding="8dp"
+                android:background="?attr/selectableItemBackground" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/history_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+        <TextView
+            android:id="@+id/history_empty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="暂无搜索历史"
+            android:textColor="#666666"
+            android:textSize="13sp"
+            android:paddingStart="16dp"
+            android:paddingBottom="8dp"
+            android:visibility="gone" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginTop="6dp"
+            android:background="#33FFFFFF" />
+
+        <!-- 第三部分：收藏地址 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="收藏地址"
+            android:textColor="#FFEB3B"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:paddingStart="16dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="4dp" />
+
+        <LinearLayout
+            android:id="@+id/bookmark_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+        <TextView
+            android:id="@+id/bookmark_empty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="暂无收藏地址"
+            android:textColor="#666666"
+            android:textSize="13sp"
+            android:paddingStart="16dp"
+            android:paddingBottom="12dp"
+            android:visibility="gone" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

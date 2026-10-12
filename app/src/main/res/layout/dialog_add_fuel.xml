@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#1A1A1A"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- 加油时间 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="加油时间"
+            android:textColor="#B0B0B0"
+            android:textSize="13sp"
+            android:layout_marginTop="8dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+            <TextView
+                android:id="@+id/tv_fuel_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@android:color/white"
+                android:textSize="15sp" />
+            <ImageButton
+                android:id="@+id/btn_pick_date"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@android:drawable/ic_menu_edit"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:tint="#FFEB3B" />
+        </LinearLayout>
+        <View android:layout_width="match_parent" android:layout_height="1dp"
+            android:background="#333333" />
+
+        <!-- 当前总里程 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="当前总里程 (km)"
+            android:textColor="#B0B0B0"
+            android:textSize="13sp"
+            android:layout_marginTop="12dp" />
+        <EditText
+            android:id="@+id/et_mileage"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:inputType="numberDecimal"
+            android:textColor="@android:color/white"
+            android:textColorHint="#666666"
+            android:hint="请输入当前总里程"
+            android:background="@null" />
+        <View android:layout_width="match_parent" android:layout_height="1dp"
+            android:background="#333333" />
+
+        <!-- 机显单价 + 优惠金额 同行 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="12dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginEnd="8dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="机显单价 (元/L)"
+                    android:textColor="#B0B0B0"
+                    android:textSize="13sp" />
+                <EditText
+                    android:id="@+id/et_unit_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:inputType="numberDecimal"
+                    android:textColor="@android:color/white"
+                    android:textColorHint="#666666"
+                    android:hint="0.00"
+                    android:background="@null" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="8dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="优惠金额 (元/L)"
+                    android:textColor="#B0B0B0"
+                    android:textSize="13sp" />
+                <EditText
+                    android:id="@+id/et_discount"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:inputType="numberDecimal"
+                    android:textColor="@android:color/white"
+                    android:textColorHint="#666666"
+                    android:hint="0.00"
+                    android:background="@null" />
+            </LinearLayout>
+        </LinearLayout>
+        <View android:layout_width="match_parent" android:layout_height="1dp"
+            android:background="#333333" />
+
+        <!-- 实付金额 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="实付金额 (元)"
+            android:textColor="#B0B0B0"
+            android:textSize="13sp"
+            android:layout_marginTop="12dp" />
+        <EditText
+            android:id="@+id/et_total_paid"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:inputType="numberDecimal"
+            android:textColor="@android:color/white"
+            android:textColorHint="#666666"
+            android:hint="请输入实付金额"
+            android:background="@null" />
+        <View android:layout_width="match_parent" android:layout_height="1dp"
+            android:background="#333333" />
+
+        <!-- 备注 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="备注（选填）"
+            android:textColor="#B0B0B0"
+            android:textSize="13sp"
+            android:layout_marginTop="12dp" />
+        <EditText
+            android:id="@+id/et_note"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:inputType="text"
+            android:textColor="@android:color/white"
+            android:textColorHint="#666666"
+            android:hint="如：加油站名称、油品标号"
+            android:background="@null"
+            android:layout_marginBottom="8dp" />
+
+    </LinearLayout>
+</ScrollView>

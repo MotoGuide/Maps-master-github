@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 模拟导航倍速按钮（选中态） -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#3A2F10" />
+    <corners android:radius="8dp" />
+    <stroke android:width="1.5dp" android:color="#FFC107" />
+</shape>

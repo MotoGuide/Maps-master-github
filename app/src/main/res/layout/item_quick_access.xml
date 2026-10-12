@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="72dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="8dp"
+    android:background="?attr/selectableItemBackground">
+
+    <FrameLayout
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@drawable/quick_access_icon_bg">
+
+        <TextView
+            android:id="@+id/quick_icon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="🏠"
+            android:textSize="22sp" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/quick_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="家"
+        android:textColor="#CCCCCC"
+        android:textSize="12sp"
+        android:maxLines="1"
+        android:ellipsize="end" />
+</LinearLayout>

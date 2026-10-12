@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="130dp"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="8dp"
+    android:background="@drawable/route_card_normal"
+    android:orientation="vertical"
+    android:paddingBottom="10dp"
+    android:paddingLeft="12dp"
+    android:paddingRight="12dp"
+    android:paddingTop="10dp">
+
+    <TextView
+        android:id="@+id/route_card_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text=""
+        android:textColor="#FFFFFF"
+        android:textSize="13sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/route_card_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text=""
+        android:textColor="#B0B0B0"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/route_card_dist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:text=""
+        android:textColor="#808080"
+        android:textSize="11sp" />
+
+</LinearLayout>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rounded_dark_card_background"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:layout_marginBottom="10dp"
+    android:padding="14dp">
+
+    <ImageView
+        android:id="@+id/iv_thumb"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_profile_default_image_foreground" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginStart="12dp">
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#B0B0B0"
+            android:textSize="14sp"
+            android:layout_marginTop="2dp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_plate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFEB3B"
+        android:textSize="13sp" />
+</LinearLayout>

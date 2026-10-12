@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="车辆类型"
+            android:textStyle="bold"
+            android:textColor="#FFEB3B"
+            android:layout_marginTop="8dp" />
+        <Spinner
+            android:id="@+id/spinner_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:popupBackground="#282828"
+            android:backgroundTint="#FFEB3B"
+            android:spinnerMode="dropdown" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="子类型"
+            android:textStyle="bold"
+            android:textColor="#FFEB3B"
+            android:layout_marginTop="16dp" />
+        <Spinner
+            android:id="@+id/spinner_subtype"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:popupBackground="#282828"
+            android:backgroundTint="#FFEB3B"
+            android:spinnerMode="dropdown" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="配置名称"
+            android:textStyle="bold"
+            android:textColor="#FFEB3B"
+            android:layout_marginTop="16dp" />
+        <EditText
+            android:id="@+id/et_profile_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="例: 我的春风650"
+            android:textColor="@color/white"
+            android:textColorHint="#808080"
+            android:backgroundTint="#FFEB3B"
+            android:inputType="textPersonName"
+            android:maxLines="1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="排量 (cc)"
+            android:textStyle="bold"
+            android:textColor="#FFEB3B"
+            android:layout_marginTop="16dp" />
+        <EditText
+            android:id="@+id/et_displacement"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="例: 650"
+            android:textColor="@color/white"
+            android:textColorHint="#808080"
+            android:backgroundTint="#FFEB3B"
+            android:inputType="number"
+            android:maxLines="1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="车牌号 (选填)"
+            android:textStyle="bold"
+            android:textColor="#FFEB3B"
+            android:layout_marginTop="16dp" />
+        <EditText
+            android:id="@+id/et_plate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="例: 京B12345"
+            android:textColor="@color/white"
+            android:textColorHint="#808080"
+            android:backgroundTint="#FFEB3B"
+            android:inputType="text"
+            android:maxLines="1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="车辆图片 (选填)"
+            android:textStyle="bold"
+            android:textColor="#FFEB3B"
+            android:layout_marginTop="16dp" />
+        <Button
+            android:id="@+id/btn_import_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="导入图片" />
+        <TextView
+            android:id="@+id/tv_image_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="未选择图片"
+            android:textColor="#808080"
+            android:textStyle="italic"
+            android:paddingTop="8dp" />
+
+    </LinearLayout>
+</ScrollView>

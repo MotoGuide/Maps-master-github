@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.amap.api.navi.AMapNaviView
+        android:id="@+id/customnavimap"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- 导航样式切换按钮浮层（语音按钮上方） -->
+    <RelativeLayout
+        android:id="@+id/navi_style_button_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|bottom"
+        android:layout_marginRight="12dp"
+        android:layout_marginBottom="260dp">
+
+        <ImageButton
+            android:id="@+id/navi_style_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/circle_button_black"
+            android:src="@drawable/jiantou"
+            android:scaleType="centerInside"
+            android:padding="6dp" />
+    </RelativeLayout>
+
+    <!-- 自定义语音播报按钮浮层（BLE 按钮上方） -->
+    <RelativeLayout
+        android:id="@+id/navi_voice_button_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|bottom"
+        android:layout_marginRight="12dp"
+        android:layout_marginBottom="200dp">
+
+        <ImageButton
+            android:id="@+id/navi_voice_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/circle_button_black"
+            android:src="@drawable/yuyinbobao"
+            android:scaleType="centerInside"
+            android:padding="6dp" />
+    </RelativeLayout>
+
+    <!-- BLE 连接按钮浮层 -->
+    <RelativeLayout
+        android:id="@+id/navi_ble_button_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|bottom"
+        android:layout_marginRight="12dp"
+        android:layout_marginBottom="140dp">
+
+        <ImageButton
+            android:id="@+id/navi_ble_scan_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/circle_button_black"
+            android:src="@drawable/ble"
+            android:scaleType="centerInside"
+            android:padding="6dp" />
+
+        <ImageView
+            android:id="@+id/navi_ble_connection_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/navi_ble_scan_button"
+            android:layout_alignBottom="@+id/navi_ble_scan_button"
+            android:layout_alignLeft="@+id/navi_ble_scan_button"
+            android:layout_alignRight="@+id/navi_ble_scan_button"
+            android:src="@drawable/ble_status_cross"
+            android:scaleType="center"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+</FrameLayout>

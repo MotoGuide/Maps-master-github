@@ -1,0 +1,44 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    compileSdkVersion 30
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 30
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    // 新增 protected 构建类型，与 :app 保持一致（v3.2 安全升级）
+    // 库模块不自行混淆，由 :app 统一处理，此处仅提供 variant 匹配
+    buildTypes {
+        debug { }
+        release { }
+        create("protected") {
+            initWith debug
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.9.10"
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3'
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+}

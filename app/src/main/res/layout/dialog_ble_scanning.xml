@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:padding="24dp">
+
+    <ProgressBar
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        style="?android:attr/progressBarStyle" />
+
+    <TextView
+        android:id="@+id/ble_progress_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="正在扫描蓝牙设备..."
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
+
+</LinearLayout>

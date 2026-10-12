@@ -1,0 +1,9 @@
+# 统一换行符：仓库内文本一律按 LF 存储，Windows 检出时按需转换
+* text=auto
+gradlew text eol=lf
+*.bat text eol=crlf
+
+# 二进制文件不做文本处理
+*.png binary
+*.jpg binary
+*.jar binary

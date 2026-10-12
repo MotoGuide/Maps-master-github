@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
+
+    <com.amap.api.maps.MapView
+        android:id="@+id/routemap"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+    <RelativeLayout
+        android:id="@+id/top_action"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+
+        <RelativeLayout
+            android:id="@+id/search_maps_bar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/rounded_black_background">
+
+            <ImageButton
+                android:id="@+id/route_back_view"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_margin="2dp"
+                android:background="@drawable/button_background_dark_selector"
+                android:src="@drawable/ic_qu_appbar_back"
+                android:tint="#FFFFFF"/>
+
+            <TextView
+                android:id="@+id/show_route_tpe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="导航路线"
+                android:textColor="#FFFFFF"
+                android:textSize="20dp"/>
+
+            <TextView
+                android:id="@+id/nav_mode_selector"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="4dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:gravity="center"
+                android:text="@string/nav_mode_drive"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:drawableRight="@drawable/ic_arrow_drop_down"
+                android:drawablePadding="4dp"
+                android:background="@drawable/button_background_dark_selector"
+                tools:ignore="RtlHardcoded"/>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:id="@+id/floating_buttons_column"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_above="@+id/route_selector_scroll"
+                android:layout_alignParentLeft="true"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/rounded_black_background"
+                android:padding="4dp"
+                tools:ignore="RtlHardcoded">
+
+                <ImageButton
+                    android:id="@+id/btn_locate"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/button_background_dark_selector"
+                    android:src="@drawable/ic_qu_direction_mylocation"
+                    android:scaleType="centerInside" />
+
+                <ImageButton
+                    android:id="@+id/btn_refresh"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/button_background_dark_selector"
+                    android:src="@drawable/ic_refresh"
+                    android:scaleType="centerInside" />
+
+                <ImageButton
+                    android:id="@+id/btn_preference"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="2dp"
+                    android:background="@drawable/button_background_dark_selector"
+                    android:src="@drawable/ic_settings_applications_grey600_24dp"
+                    android:scaleType="centerInside" />
+
+            </LinearLayout>
+
+
+            <HorizontalScrollView
+                android:id="@+id/route_selector_scroll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/navi_cast_root_rl"
+                android:layout_marginBottom="8dp"
+                android:scrollbars="none"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:id="@+id/route_selector_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp" />
+
+            </HorizontalScrollView>
+
+            <RelativeLayout
+
+                android:id="@+id/navi_cast_root_rl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/rounded_black_background"
+                android:padding="12dp">
+
+                <LinearLayout
+                    android:id="@+id/route_info_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center_horizontal"
+                        android:padding="4dp">
+
+                        <ImageView
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:src="@drawable/icon_road_map" />
+
+                        <TextView
+                            android:id="@+id/navi_route_distance"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="@string/routeinfo_default"
+                            android:textColor="#FFEB3B"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="公里"
+                            android:textColor="#B0B0B0"
+                            android:textSize="11sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center_horizontal"
+                        android:padding="4dp">
+
+                        <ImageView
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:src="@drawable/icon_time_map" />
+
+                        <TextView
+                            android:id="@+id/navi_route_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="@string/routeinfo_default"
+                            android:textColor="#FFEB3B"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="分钟"
+                            android:textColor="#B0B0B0"
+                            android:textSize="11sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/route_cost_column"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center_horizontal"
+                        android:padding="4dp">
+
+                        <ImageView
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:src="@drawable/shoufei" />
+
+                        <TextView
+                            android:id="@+id/navi_route_cost"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="@string/routeinfo_default"
+                            android:textColor="#FFEB3B"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="元"
+                            android:textColor="#B0B0B0"
+                            android:textSize="11sp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:id="@+id/route_action_buttons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/navi_cast_root_rl"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="8dp"
+                android:orientation="horizontal"
+                tools:ignore="RtlHardcoded">
+
+                <Button
+                    android:id="@+id/routestartemulator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8dp"
+                    android:background="@drawable/circle_button_black"
+                    android:text="模"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    tools:ignore="RtlHardcoded"/>
+
+                <ImageButton
+                    android:id="@+id/routestartnavi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/circle_button_black"
+                    android:src="@drawable/ic_navigation_arrow"
+                    android:scaleType="centerInside"
+                    android:padding="8dp"
+                    tools:ignore="RtlHardcoded"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+
+    <org.zarroboogs.maps.widget.StatusBarView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#4C000000"/>
+</FrameLayout>

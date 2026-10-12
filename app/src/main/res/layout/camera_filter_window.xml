@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/camera_filter_rl"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_alignParentBottom="true"
+    android:layout_marginBottom="10dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:visibility="gone">
+
+    <RelativeLayout
+        android:id="@+id/camera_filter_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#000000"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/camera_filter_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@+id/camera_filter_close"
+            android:text="摄像头类型过滤"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/camera_filter_close"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_alignParentEnd="true"
+            android:background="@android:color/transparent"
+            android:text="✕"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+
+        <ScrollView
+            android:id="@+id/camera_filter_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_below="@+id/camera_filter_title"
+            android:layout_marginTop="10dp">
+
+            <GridLayout
+                android:id="@+id/camera_filter_checkbox_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="3" />
+        </ScrollView>
+
+        <LinearLayout
+            android:id="@+id/camera_filter_btn_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/camera_filter_scroll"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/camera_filter_select_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="全选"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:background="@drawable/route_card_normal"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"/>
+
+            <Button
+                android:id="@+id/camera_filter_deselect_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="取消全选"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:background="@drawable/route_card_normal"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_marginLeft="10dp"/>
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

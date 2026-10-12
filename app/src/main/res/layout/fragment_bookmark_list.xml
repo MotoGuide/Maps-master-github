@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 收藏地点列表 -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0D0D0D">
+
+    <!-- 列表 -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/bookmark_list_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:padding="12dp" />
+
+    <!-- 空状态提示 -->
+    <LinearLayout
+        android:id="@+id/bookmark_empty_state"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="⭐"
+            android:textSize="48sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="暂无收藏地点"
+            android:textColor="#888"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="在地图上长按可添加收藏"
+            android:textColor="#555"
+            android:textSize="13sp" />
+    </LinearLayout>
+</FrameLayout>

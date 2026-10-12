@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="drawerMenuButton">
+        <item name="android:textSize">@dimen/drawerTextSize</item>
+        <item name="android:textColor">@color/drawer_text_color_normal</item>
+        <item name="android:gravity">left|center</item>
+        <item name="android:background">@drawable/button_background_selector</item>
+        <item name="android:paddingLeft">8.0dip</item>
+        <item name="android:paddingRight">8.0dip</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">50.0dip</item>
+        <item name="android:drawablePadding">8.0dip</item>
+    </style>
+
+    <!-- 首页暗色对话框主题 -->
+    <style name="DarkDialogTheme" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/rounded_dark_dialog_bg</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorSecondary">#B0B0B0</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:editTextColor">@color/white</item>
+        <item name="android:textColorHint">#888888</item>
+        <item name="colorAccent">#FFEB3B</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <!-- 关于页面暗色主题 -->
+    <!-- 暗色底部弹出抽屉主题 -->
+    <style name="DarkBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <style name="DarkPreferenceTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">#000000</item>
+        <item name="android:background">#000000</item>
+        <item name="colorPrimary">#FFEB3B</item>
+        <item name="colorPrimaryDark">#000000</item>
+        <item name="colorAccent">#FFEB3B</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorSecondary">#B0B0B0</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:listDivider">@drawable/pref_divider_yellow</item>
+    </style>
+
+</resources>

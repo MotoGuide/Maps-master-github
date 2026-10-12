@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#000000"
+    android:padding="16dp">
+
+    <!-- 标题 -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="路线偏好"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:gravity="center"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- 四个选项按钮 -->
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:rowCount="2">
+
+        <TextView
+            android:id="@+id/btn_congestion"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_columnWeight="1"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="8dp"
+            android:text="躲避拥堵"
+            android:textSize="14sp"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/route_card_normal"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"/>
+
+        <TextView
+            android:id="@+id/btn_cost"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_columnWeight="1"
+            android:layout_marginStart="4dp"
+            android:layout_marginBottom="8dp"
+            android:text="避免收费"
+            android:textSize="14sp"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/route_card_normal"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"/>
+
+        <TextView
+            android:id="@+id/btn_avoidhightspeed"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_columnWeight="1"
+            android:layout_marginEnd="4dp"
+            android:text="不走高速"
+            android:textSize="14sp"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/route_card_normal"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"/>
+
+        <TextView
+            android:id="@+id/btn_hightspeed"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_columnWeight="1"
+            android:layout_marginStart="4dp"
+            android:text="高速优先"
+            android:textSize="14sp"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/route_card_normal"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"/>
+
+    </GridLayout>
+
+</LinearLayout>

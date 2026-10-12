@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="导航设置">
+
+        <CheckBoxPreference
+            android:key="setting_pref_navi_beijng_camera"
+            android:title="摩托车抓拍摄像头"
+            android:summary="在导航中显示摩托车抓拍摄像头提醒"
+            android:defaultValue="true" />
+
+        <CheckBoxPreference
+            android:key="setting_pref_navi_night"
+            android:title="夜间模式"
+            android:summary="导航地图使用夜间配色"
+            android:defaultValue="false" />
+
+        <CheckBoxPreference
+            android:key="setting_pref_navi_fix_path"
+            android:title="偏航重新计算"
+            android:summary="偏离路线时自动重新规划"
+            android:defaultValue="true" />
+
+        <CheckBoxPreference
+            android:key="setting_pref_navi_jam"
+            android:title="拥堵重新计算"
+            android:summary="遇到拥堵时自动重新规划路线"
+            android:defaultValue="true" />
+
+        <CheckBoxPreference
+            android:key="setting_pref_navi_traffic"
+            android:title="交通信息播报"
+            android:summary="播报前方交通信息"
+            android:defaultValue="true" />
+
+        <CheckBoxPreference
+            android:key="setting_pref_navi_camera"
+            android:title="摄像头播报"
+            android:summary="播报前方电子眼信息"
+            android:defaultValue="true" />
+
+        <CheckBoxPreference
+            android:key="setting_pref_navi_screen_on"
+            android:title="屏幕常亮"
+            android:summary="导航时保持屏幕常亮"
+            android:defaultValue="true" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

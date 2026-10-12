@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#0D0D0D">
+
+    <!-- 顶部栏 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="轨迹列表"
+            android:textColor="#F5F5F5"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/gpx_btn_import"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:paddingHorizontal="16dp"
+            android:gravity="center"
+            android:text="导入"
+            android:textColor="#FFC107"
+            android:background="@drawable/bg_btn_outline" />
+    </LinearLayout>
+
+    <!-- 列表 -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/gpx_list_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:padding="12dp" />
+</LinearLayout>

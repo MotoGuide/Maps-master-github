@@ -1,0 +1,54 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'org.jetbrains.kotlin.kapt'
+}
+
+android {
+    compileSdkVersion 30
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 30
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    // 与 :app 和 :nav-core 保持构建类型一致（v3.2 安全升级）
+    buildTypes {
+        debug { }
+        release { }
+        create("protected") {
+            initWith debug
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    // 依赖 nav-core（复用 NavDataSource / SnapToRoute / Haversine / NavState / GpsLocation）
+    implementation project(':nav-core')
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.9.10"
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3'
+
+    // Room（轨迹+航点+转向点存储）
+    implementation 'androidx.room:room-runtime:2.3.0'
+    implementation 'androidx.room:room-ktx:2.3.0'
+    kapt 'androidx.room:room-compiler:2.3.0'
+
+    // GPX 解析使用 Android 内置 XmlPullParser，无需外部依赖
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+}

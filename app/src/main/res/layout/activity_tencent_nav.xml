@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FF0D0D0D">
+
+    <com.tencent.navix.api.layer.NavigatorViewStub
+        android:id="@+id/navigator_view_stub"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:travel_mode="Driving" />
+
+    <!-- 自定义导航面板 — 左上角 -->
+    <LinearLayout
+        android:id="@+id/nav_info_panel"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+        android:gravity="center_horizontal"
+        android:background="@drawable/rounded_dark_card_background"
+        android:padding="10dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/turn_icon"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:scaleType="fitCenter" />
+
+        <TextView
+            android:id="@+id/distance_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- 车道引导图 -->
+    <ImageView
+        android:id="@+id/guide_lane"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_gravity="top|start"
+        android:layout_marginTop="160dp"
+        android:visibility="gone" />
+
+    <!-- 速度显示 — 右下角 -->
+    <LinearLayout
+        android:id="@+id/speed_panel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="12dp"
+        android:background="@drawable/rounded_dark_card_background"
+        android:padding="8dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/speed_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFEB3B"
+            android:textSize="32sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="km/h"
+            android:textColor="#888888"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+    <!-- 预览/全览切换按钮 — 左下角 -->
+    <com.tencent.navix.ui.internal.NavPreviewButtonView
+        android:id="@+id/preview_button"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="bottom|start"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp" />
+
+</FrameLayout>
